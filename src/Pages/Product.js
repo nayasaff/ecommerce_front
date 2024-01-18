@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Star } from "@mui/icons-material";
+import { Star, StarBorder } from "@mui/icons-material";
 import SuccessSnackbar from "../Components/SuccessSnackbar";
 import ErrorSnackbar from "../Components/ErrorSnackbar";
 
@@ -85,7 +85,7 @@ const Product = () => {
       <div className=" mx-auto block sm:flex justify-start items-center" style={{height : "calc(100vh - 64px)"}}>
         <div
          
-          className="sm:bg-whitesmoke mt-0 sm:mt-4 bg-gray-200 left-column sm:w-7/12 relative"
+          className="sm:bg-white mt-0 sm:mt-4 bg-gray-200 left-column sm:w-7/12 relative"
         >
           <img
             src={require(`../Assets/${product.image}`)}
@@ -102,15 +102,13 @@ const Product = () => {
           <h3 className="text-3xl font-bold">{product.name}</h3>
           <div class="product-description border-b border-solid mt-1 mb-5">
             <div className="flex text-yellow-500">
-              <Star style={{ fontSize: "22px" }} />
-              <Star style={{ fontSize: "22px" }} />
-              <Star style={{ fontSize: "22px" }} />
-              <Star style={{ fontSize: "22px" }} />
-              <Star style={{ fontSize: "22px" }} />
+
+              {[...Array(product.rating)].map((index, item) => <Star key={index} style={{ fontSize: "22px" }} />)}
+              {[...Array(5 - product.rating)].map((index, item) => <StarBorder key={index} style={{ fontSize: "22px" }} />)}
               <div className="ml-1 text-gray-700">(100+ Reviews) </div>
             </div>
             <p className="text-lg mt-6">
-              This is the description of the notebook
+              {product.description}
             </p>
             <p className="my-8 text-xl font-medium">${product.price}</p>
           </div>

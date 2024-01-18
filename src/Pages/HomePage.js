@@ -45,11 +45,11 @@ const HomePage = () => {
 
   return (
     <>
-      <img
-        src={require("../Assets/Banner 2.jpg")}
+      {/* <img
+        src={require("../Assets/Banner 1.jpg")}
         className="fit shadow-md mb-6"
         style={{ width: "100%", height: "350px", objectFit: "fill" }}
-      />
+      /> */}
       <div className="flex flex-col sm:flex-row">
         {/**CATEGORIES */}
         <div className="my-8 pl-6" style={{ flex: 1 }}>

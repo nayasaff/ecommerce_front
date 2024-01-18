@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SuccessSnackbar from "../Components/SuccessSnackbar";
-import { Add, Star, Check } from "@mui/icons-material";
+import { Star, StarBorder } from "@mui/icons-material";
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
@@ -11,13 +11,7 @@ const ProductCard = ({ product }) => {
     navigate(`/product/${productId}`);
   };
 
-  const addToCart = async (productId) => {
-    setAddedToCart(true);
 
-    setTimeout(() => {
-      setAddedToCart(false);
-    }, 3000);
-  };
 
   return (
     <div className="flex bg-white px-5 pb-3 shadow-sm flex-col gap-2 cursor-pointer hover:border border-gray-400">
@@ -36,9 +30,9 @@ const ProductCard = ({ product }) => {
           <h3 className="text-gray-800 text-base font-normal">
             {product.price}$
           </h3>
-          <div className="flex text-indigo">
-            <Star style={{ fontSize: "20px" }} />
-            <Star style={{ fontSize: "20px" }} />
+          <div className="flex text-yellow-500">
+          {[...Array(product.rating)].map((index, item) => <Star key={index} style={{ fontSize: "22px" }} />)}
+              {[...Array(5 - product.rating)].map((index, item) => <StarBorder key={index} style={{ fontSize: "22px" }} />)}
           </div>
         </div>
         {/* {!addedToCart && (
