@@ -14,7 +14,9 @@ module.exports = {
         colors:{
           'card' : '#c3c3c3',
           "indigo" : '#1a374f',
-          'whitesmoke' : "#FAFAFA"
+          'whitesmoke' : "#FAFAFA",
+          "lightblue" : "#D9DFFF",
+          "primary" : "#EE4943",
         }
       },
     },
